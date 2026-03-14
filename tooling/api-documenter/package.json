@@ -5,7 +5,7 @@
   "description": "Read JSON files from api-extractor, generate documentation pages",
   "repository": {
     "type": "git",
-    "url": "https://github.com/livekit/components-js.git",
+    "url": "https://github.com/KazimirPodolski/livekit-components-js.git",
     "directory": "tooling/api-documenter"
   },
   "license": "MIT",

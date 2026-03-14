@@ -1,11 +1,11 @@
 {
-  "name": "@livekit/components-react",
-  "version": "2.9.20",
+  "name": "@werxt/livekit-components-js",
+  "version": "2.9.20+werxt.1",
   "license": "Apache-2.0",
   "author": "LiveKit",
   "repository": {
     "type": "git",
-    "url": "https://github.com/livekit/components-js.git",
+    "url": "https://github.com/KazimirPodolski/livekit-components-js.git",
     "directory": "/packages/react"
   },
   "exports": {
