@@ -33,7 +33,7 @@ export interface VideoConferenceProps extends React.HTMLAttributes<HTMLDivElemen
   chatMessageDecoder?: MessageDecoder;
   /** @alpha */
   SettingsComponent?: React.ComponentType;
-  controlBarProops?: Partial<ControlBarProps>;
+  controlBarProps?: Partial<ControlBarProps>;
 }
 
 /**
@@ -59,7 +59,7 @@ export function VideoConference({
   chatMessageDecoder,
   chatMessageEncoder,
   SettingsComponent,
-  controlBarProops = {},
+  controlBarProps = {},
   ...props
 }: VideoConferenceProps) {
   const [widgetState, setWidgetState] = React.useState<WidgetState>({
@@ -158,7 +158,8 @@ export function VideoConference({
               </div>
             )}
             <ControlBar
-              controls={{ chat: true, settings: !!SettingsComponent, ...controlBarProops }}
+              controls={{ chat: true, settings: !!SettingsComponent }}
+              {...controlBarProps}
             />
           </div>
           <Chat
