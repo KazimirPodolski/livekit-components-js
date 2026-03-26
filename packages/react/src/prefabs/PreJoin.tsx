@@ -51,6 +51,10 @@ export interface PreJoinProps
    */
   persistUserChoices?: boolean;
   videoProcessor?: TrackProcessor<Track.Kind.Video>;
+  controls?: {
+    join: boolean;
+    username: boolean;
+  };
 }
 
 /** @public */
@@ -229,6 +233,10 @@ export function PreJoin({
   userLabel = 'Username',
   persistUserChoices = true,
   videoProcessor,
+  controls = {
+    join: true,
+    username: true,
+  },
   ...htmlProps
 }: PreJoinProps) {
   const {
@@ -402,24 +410,28 @@ export function PreJoin({
       </div>
 
       <form className="lk-username-container">
-        <input
-          className="lk-form-control"
-          id="username"
-          name="username"
-          type="text"
-          defaultValue={username}
-          placeholder={userLabel}
-          onChange={(inputEl) => setUsername(inputEl.target.value)}
-          autoComplete="off"
-        />
-        <button
-          className="lk-button lk-join-button"
-          type="submit"
-          onClick={handleSubmit}
-          disabled={!isValid}
-        >
-          {joinLabel}
-        </button>
+        {controls?.username && (
+          <input
+            className="lk-form-control"
+            id="username"
+            name="username"
+            type="text"
+            defaultValue={username}
+            placeholder={userLabel}
+            onChange={(inputEl) => setUsername(inputEl.target.value)}
+            autoComplete="off"
+          />
+        )}
+        {controls?.join && (
+          <button
+            className="lk-button lk-join-button"
+            type="submit"
+            onClick={handleSubmit}
+            disabled={!isValid}
+          >
+            {joinLabel}
+          </button>
+        )}
       </form>
 
       {debug && (
