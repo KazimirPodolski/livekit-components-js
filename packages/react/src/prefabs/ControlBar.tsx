@@ -49,6 +49,7 @@ export interface ControlBarProps extends React.HTMLAttributes<HTMLDivElement> {
    * @alpha
    */
   saveUserChoices?: boolean;
+  CustomControls?: React.ComponentType;
 }
 
 /**
@@ -72,6 +73,7 @@ export function ControlBar({
   controls,
   saveUserChoices = true,
   onDeviceError,
+  CustomControls,
   ...props
 }: ControlBarProps) {
   const [isChatOpen, setIsChatOpen] = React.useState(false);
@@ -215,6 +217,7 @@ export function ControlBar({
           {showText && 'Settings'}
         </SettingsMenuToggle>
       )}
+      {CustomControls && <CustomControls />}
       {visibleControls.leave && (
         <DisconnectButton>
           {showIcon && <LeaveIcon />}
